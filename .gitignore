@@ -1,0 +1,50 @@
+# ==========================================
+# .NET / C# / Visual Studio
+# ==========================================
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+TestResults/
+*.Generated.cs
+
+# ==========================================
+# Android / Gradle / IntelliJ
+# ==========================================
+.gradle/
+build/
+app/build/
+local.properties
+.idea/
+*.iml
+.cxx/
+*.apk
+*.aab
+captures/
+.externalNativeBuild/
+
+# ==========================================
+# iOS / Xcode / Swift
+# ==========================================
+.DS_Store
+*.xcworkspace/
+*.xcuserstate
+xcuserdata/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+build/
+
+# ==========================================
+# Environment & Misc
+# ==========================================
+*.log
+*.tmp
+*.bak
+.directory
+Thumbs.db

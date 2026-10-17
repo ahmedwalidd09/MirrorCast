@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Section 6 Strict Design Tokens -->
+    <color name="bg_base">#000000</color>
+    <color name="bg_surface">#0D0D0D</color>
+    <color name="bg_elevated">#161616</color>
+    <color name="bg_hover">#1F1F1F</color>
+
+    <color name="silver_bright">#C8C8CC</color>
+    <color name="silver_mid">#8E8E93</color>
+    <color name="silver_dim">#48484A</color>
+
+    <color name="stream_active">#30D158</color>
+    <color name="error_red">#FF453A</color>
+</resources>

@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA000001 /* MirrorCastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000001 /* MirrorCastApp.swift */; };
+		BA000002 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000002 /* AppState.swift */; };
+		BA000003 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000003 /* ColorTheme.swift */; };
+		BA000004 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000004 /* Typography.swift */; };
+		BA000005 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000005 /* CustomSegmentedControl.swift */; };
+		BA000006 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000006 /* CustomSlider.swift */; };
+		BA000007 /* BroadcastPickerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000007 /* BroadcastPickerRepresentable.swift */; };
+		BA000008 /* DiscoveredReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000008 /* DiscoveredReceiver.swift */; };
+		BA000009 /* StreamConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000009 /* StreamConfig.swift */; };
+		BA00000A /* StreamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000A /* StreamStats.swift */; };
+		BA00000B /* Handshake.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000B /* Handshake.swift */; };
+		BA00000C /* SharedConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000C /* SharedConfig.swift */; };
+		BA00000D /* BonjourDiscoveryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000D /* BonjourDiscoveryManager.swift */; };
+		BA00000E /* HotspotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000E /* HotspotManager.swift */; };
+		BA00000F /* StreamingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000F /* StreamingClient.swift */; };
+		BA000010 /* ReceiverRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000010 /* ReceiverRowView.swift */; };
+		BA000011 /* ManualConnectSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000011 /* ManualConnectSheet.swift */; };
+		BA000012 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000012 /* QRCodeScannerView.swift */; };
+		BA000013 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000013 /* HomeView.swift */; };
+		BA000014 /* StreamingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000014 /* StreamingView.swift */; };
+		BA000015 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000015 /* SettingsView.swift */; };
+		BA000018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000018 /* Assets.xcassets */; };
+		
+		BE000001 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE000001 /* SampleHandler.swift */; };
+		BE000002 /* VideoEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE000002 /* VideoEncoder.swift */; };
+		BE000003 /* AudioEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE000003 /* AudioEncoder.swift */; };
+		BE000004 /* BroadcastStreamClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE000004 /* BroadcastStreamClient.swift */; };
+		BE00000A /* StreamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000A /* StreamStats.swift */; };
+		BE00000C /* SharedConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000C /* SharedConfig.swift */; };
+		
+		111111112222333344440007 /* MirrorCastBroadcast.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 111111112222333344440006 /* MirrorCastBroadcast.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		111111112222333344440011 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111111112222333344440010 /* Network.framework */; };
+		111111112222333344440012 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111111112222333344440010 /* Network.framework */; };
+		111111112222333344440014 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111111112222333344440013 /* NetworkExtension.framework */; };
+		111111112222333344440016 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111111112222333344440015 /* VideoToolbox.framework */; };
+		111111112222333344440018 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111111112222333344440017 /* CoreMedia.framework */; };
+		11111111222233334444001A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111111112222333344440019 /* AVFoundation.framework */; };
+		11111111222233334444001C /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11111111222233334444001B /* ReplayKit.framework */; };
+		11111111222233334444001D /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11111111222233334444001B /* ReplayKit.framework */; };
+		11111111222233334444001F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11111111222233334444001E /* AudioToolbox.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		111111112222333344440003 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 111111112222333344440000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 111111112222333344440002;
+			remoteInfo = MirrorCastBroadcast;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		111111112222333344440008 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				111111112222333344440007 /* MirrorCastBroadcast.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		111111112222333344440005 /* MirrorCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MirrorCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		111111112222333344440006 /* MirrorCastBroadcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MirrorCastBroadcast.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		
+		111111112222333344440010 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
+		111111112222333344440013 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		111111112222333344440015 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		111111112222333344440017 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		111111112222333344440019 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		11111111222233334444001B /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		11111111222233334444001E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		
+		AA000001 /* MirrorCastApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorCastApp.swift; sourceTree = "<group>"; };
+		AA000002 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		AA000003 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		AA000004 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		AA000005 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		AA000006 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		AA000007 /* BroadcastPickerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastPickerRepresentable.swift; sourceTree = "<group>"; };
+		AA000008 /* DiscoveredReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredReceiver.swift; sourceTree = "<group>"; };
+		AA000009 /* StreamConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamConfig.swift; sourceTree = "<group>"; };
+		AA00000A /* StreamStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamStats.swift; sourceTree = "<group>"; };
+		AA00000B /* Handshake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handshake.swift; sourceTree = "<group>"; };
+		AA00000C /* SharedConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConfig.swift; sourceTree = "<group>"; };
+		AA00000D /* BonjourDiscoveryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourDiscoveryManager.swift; sourceTree = "<group>"; };
+		AA00000E /* HotspotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotspotManager.swift; sourceTree = "<group>"; };
+		AA00000F /* StreamingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingClient.swift; sourceTree = "<group>"; };
+		AA000010 /* ReceiverRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverRowView.swift; sourceTree = "<group>"; };
+		AA000011 /* ManualConnectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualConnectSheet.swift; sourceTree = "<group>"; };
+		AA000012 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
+		AA000013 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AA000014 /* StreamingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingView.swift; sourceTree = "<group>"; };
+		AA000015 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AA000016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA000017 /* MirrorCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MirrorCast.entitlements; sourceTree = "<group>"; };
+		AA000018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		
+		AE000001 /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
+		AE000002 /* VideoEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEncoder.swift; sourceTree = "<group>"; };
+		AE000003 /* AudioEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEncoder.swift; sourceTree = "<group>"; };
+		AE000004 /* BroadcastStreamClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastStreamClient.swift; sourceTree = "<group>"; };
+		AE000005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE000006 /* MirrorCastBroadcast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MirrorCastBroadcast.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		111111112222333344440020 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				111111112222333344440011 /* Network.framework in Frameworks */,
+				111111112222333344440014 /* NetworkExtension.framework in Frameworks */,
+				11111111222233334444001A /* AVFoundation.framework in Frameworks */,
+				11111111222233334444001C /* ReplayKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		111111112222333344440021 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				111111112222333344440012 /* Network.framework in Frameworks */,
+				111111112222333344440016 /* VideoToolbox.framework in Frameworks */,
+				111111112222333344440018 /* CoreMedia.framework in Frameworks */,
+				11111111222233334444001D /* ReplayKit.framework in Frameworks */,
+				11111111222233334444001F /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		111111112222333344440030 = {
+			isa = PBXGroup;
+			children = (
+				111111112222333344440031 /* MirrorCast */,
+				111111112222333344440032 /* MirrorCastBroadcast */,
+				111111112222333344440033 /* Frameworks */,
+				111111112222333344440034 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		111111112222333344440031 /* MirrorCast */ = {
+			isa = PBXGroup;
+			children = (
+				111111112222333344440035 /* App */,
+				111111112222333344440036 /* Core */,
+				111111112222333344440037 /* Views */,
+				111111112222333344440038 /* Resources */,
+			);
+			path = MirrorCast;
+			sourceTree = "<group>";
+		};
+		111111112222333344440035 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AA000001 /* MirrorCastApp.swift */,
+				AA000002 /* AppState.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		111111112222333344440036 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				111111112222333344440039 /* Theme */,
+				11111111222233334444003A /* Models */,
+				11111111222233334444003B /* Networking */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		111111112222333344440039 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				AA000003 /* ColorTheme.swift */,
+				AA000004 /* Typography.swift */,
+				AA000005 /* CustomSegmentedControl.swift */,
+				AA000006 /* CustomSlider.swift */,
+				AA000007 /* BroadcastPickerRepresentable.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		11111111222233334444003A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA000008 /* DiscoveredReceiver.swift */,
+				AA000009 /* StreamConfig.swift */,
+				AA00000A /* StreamStats.swift */,
+				AA00000B /* Handshake.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		11111111222233334444003B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000C /* SharedConfig.swift */,
+				AA00000D /* BonjourDiscoveryManager.swift */,
+				AA00000E /* HotspotManager.swift */,
+				AA00000F /* StreamingClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		111111112222333344440037 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA000010 /* ReceiverRowView.swift */,
+				AA000011 /* ManualConnectSheet.swift */,
+				AA000012 /* QRCodeScannerView.swift */,
+				AA000013 /* HomeView.swift */,
+				AA000014 /* StreamingView.swift */,
+				AA000015 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		111111112222333344440038 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA000016 /* Info.plist */,
+				AA000017 /* MirrorCast.entitlements */,
+				AA000018 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		111111112222333344440032 /* MirrorCastBroadcast */ = {
+			isa = PBXGroup;
+			children = (
+				AE000001 /* SampleHandler.swift */,
+				AE000002 /* VideoEncoder.swift */,
+				AE000003 /* AudioEncoder.swift */,
+				AE000004 /* BroadcastStreamClient.swift */,
+				AE000005 /* Info.plist */,
+				AE000006 /* MirrorCastBroadcast.entitlements */,
+			);
+			path = MirrorCastBroadcast;
+			sourceTree = "<group>";
+		};
+		111111112222333344440033 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				111111112222333344440010 /* Network.framework */,
+				111111112222333344440013 /* NetworkExtension.framework */,
+				111111112222333344440015 /* VideoToolbox.framework */,
+				111111112222333344440017 /* CoreMedia.framework */,
+				111111112222333344440019 /* AVFoundation.framework */,
+				11111111222233334444001B /* ReplayKit.framework */,
+				11111111222233334444001E /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		111111112222333344440034 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				111111112222333344440005 /* MirrorCast.app */,
+				111111112222333344440006 /* MirrorCastBroadcast.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		111111112222333344440001 /* MirrorCast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 111111112222333344440040 /* Build configuration list for PBXNativeTarget "MirrorCast" */;
+			buildPhases = (
+				111111112222333344440050 /* Sources */,
+				111111112222333344440020 /* Frameworks */,
+				111111112222333344440060 /* Resources */,
+				111111112222333344440008 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				111111112222333344440004 /* PBXTargetDependency */,
+			);
+			name = MirrorCast;
+			productName = MirrorCast;
+			productReference = 111111112222333344440005 /* MirrorCast.app */;
+			productType = "com.apple.product-type.application";
+		};
+		111111112222333344440002 /* MirrorCastBroadcast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 111111112222333344440041 /* Build configuration list for PBXNativeTarget "MirrorCastBroadcast" */;
+			buildPhases = (
+				111111112222333344440051 /* Sources */,
+				111111112222333344440021 /* Frameworks */,
+				111111112222333344440061 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MirrorCastBroadcast;
+			productName = MirrorCastBroadcast;
+			productReference = 111111112222333344440006 /* MirrorCastBroadcast.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		111111112222333344440000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					111111112222333344440001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					111111112222333344440002 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 111111112222333344440042 /* Build configuration list for PBXProject "MirrorCast" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 111111112222333344440030;
+			productRefGroup = 111111112222333344440034 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				111111112222333344440001 /* MirrorCast */,
+				111111112222333344440002 /* MirrorCastBroadcast */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		111111112222333344440060 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA000018 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		111111112222333344440061 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		111111112222333344440050 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA000001 /* MirrorCastApp.swift in Sources */,
+				BA000002 /* AppState.swift in Sources */,
+				BA000003 /* ColorTheme.swift in Sources */,
+				BA000004 /* Typography.swift in Sources */,
+				BA000005 /* CustomSegmentedControl.swift in Sources */,
+				BA000006 /* CustomSlider.swift in Sources */,
+				BA000007 /* BroadcastPickerRepresentable.swift in Sources */,
+				BA000008 /* DiscoveredReceiver.swift in Sources */,
+				BA000009 /* StreamConfig.swift in Sources */,
+				BA00000A /* StreamStats.swift in Sources */,
+				BA00000B /* Handshake.swift in Sources */,
+				BA00000C /* SharedConfig.swift in Sources */,
+				BA00000D /* BonjourDiscoveryManager.swift in Sources */,
+				BA00000E /* HotspotManager.swift in Sources */,
+				BA00000F /* StreamingClient.swift in Sources */,
+				BA000010 /* ReceiverRowView.swift in Sources */,
+				BA000011 /* ManualConnectSheet.swift in Sources */,
+				BA000012 /* QRCodeScannerView.swift in Sources */,
+				BA000013 /* HomeView.swift in Sources */,
+				BA000014 /* StreamingView.swift in Sources */,
+				BA000015 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		111111112222333344440051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE000001 /* SampleHandler.swift in Sources */,
+				BE000002 /* VideoEncoder.swift in Sources */,
+				BE000003 /* AudioEncoder.swift in Sources */,
+				BE000004 /* BroadcastStreamClient.swift in Sources */,
+				BE00000A /* StreamStats.swift in Sources */,
+				BE00000C /* SharedConfig.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		111111112222333344440004 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 111111112222333344440002 /* MirrorCastBroadcast */;
+			targetProxy = 111111112222333344440003 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		111111112222333344440070 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDEFINED_VARIABLES = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		111111112222333344440071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDEFINED_VARIABLES = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		111111112222333344440072 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MirrorCast/Resources/MirrorCast.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MirrorCast/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirrorcast.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		111111112222333344440073 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MirrorCast/Resources/MirrorCast.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MirrorCast/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirrorcast.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		111111112222333344440074 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MirrorCastBroadcast/MirrorCastBroadcast.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = MirrorCastBroadcast/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirrorcast.app.broadcast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		111111112222333344440075 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MirrorCastBroadcast/MirrorCastBroadcast.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = MirrorCastBroadcast/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirrorcast.app.broadcast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		111111112222333344440040 /* Build configuration list for PBXNativeTarget "MirrorCast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				111111112222333344440072 /* Debug */,
+				111111112222333344440073 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		111111112222333344440041 /* Build configuration list for PBXNativeTarget "MirrorCastBroadcast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				111111112222333344440074 /* Debug */,
+				111111112222333344440075 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		111111112222333344440042 /* Build configuration list for PBXProject "MirrorCast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				111111112222333344440070 /* Debug */,
+				111111112222333344440071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 111111112222333344440000 /* Project object */;
+}

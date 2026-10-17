@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Sleek silver cast screen logo -->
+    <path
+        android:fillColor="#C8C8CC"
+        android:pathData="M30,32h48c2.2,0 4,1.8 4,4v26c0,2.2 -1.8,4 -4,4H30c-2.2,0 -4,-1.8 -4,-4V36c0,-2.2 1.8,-4 4,-4zm4,6v22h40V38H34z" />
+    <path
+        android:fillColor="#30D158"
+        android:pathData="M48,70h12v4H48z" />
+    <path
+        android:fillColor="#8E8E93"
+        android:pathData="M42,74h24v3H42z" />
+</vector>

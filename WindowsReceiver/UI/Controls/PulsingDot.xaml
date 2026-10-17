@@ -1,0 +1,60 @@
+<UserControl x:Class="MirrorCast.Receiver.UI.Controls.PulsingDot"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="16" d:DesignWidth="16"
+             Width="16" Height="16">
+    <Grid>
+        <!-- Outer pulsing aura -->
+        <Ellipse x:Name="PulsingAura"
+                 Width="8" Height="8"
+                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Fill="{Binding DotBrush, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                 Opacity="0.4"
+                 RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <ScaleTransform x:Name="AuraScale" ScaleX="1.0" ScaleY="1.0" />
+            </Ellipse.RenderTransform>
+        </Ellipse>
+
+        <!-- Core solid dot -->
+        <Ellipse x:Name="CoreDot"
+                 Width="8" Height="8"
+                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Fill="{Binding DotBrush, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+    </Grid>
+
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UserControl.Loaded">
+            <BeginStoryboard>
+                <Storyboard RepeatBehavior="Forever">
+                    <DoubleAnimation Storyboard.TargetName="AuraScale"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     From="1.0" To="1.4"
+                                     Duration="0:0:1"
+                                     AutoReverse="True">
+                        <DoubleAnimation.EasingFunction>
+                            <SineEase EasingMode="EaseInOut" />
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="AuraScale"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     From="1.0" To="1.4"
+                                     Duration="0:0:1"
+                                     AutoReverse="True">
+                        <DoubleAnimation.EasingFunction>
+                            <SineEase EasingMode="EaseInOut" />
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="PulsingAura"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0.4" To="0.1"
+                                     Duration="0:0:1"
+                                     AutoReverse="True" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+</UserControl>

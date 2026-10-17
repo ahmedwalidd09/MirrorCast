@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MirrorCast</string>
+    <string name="channel_name">Screen Mirroring Service</string>
+    <string name="channel_description">Persistent notification for MirrorCast screen capture and streaming</string>
+    <string name="notification_title">MirrorCast Active</string>
+    <string name="notification_text">Streaming screen to %1$s</string>
+    <string name="notification_action_stop">Stop Mirroring</string>
+    <string name="notification_action_pause">Pause</string>
+    <string name="notification_action_resume">Resume</string>
+</resources>
