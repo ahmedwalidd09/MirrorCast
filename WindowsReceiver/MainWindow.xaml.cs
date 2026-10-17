@@ -1,5 +1,8 @@
 using System.Windows;
 using System.Windows.Input;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using MouseEventArgs = System.Windows.Input.MouseEventArgs;
+using MouseButtonEventArgs = System.Windows.Input.MouseButtonEventArgs;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using MirrorCast.Receiver.Models;

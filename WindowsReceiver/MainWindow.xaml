@@ -177,7 +177,7 @@
                 </Grid.RowDefinitions>
 
                 <!-- Brand Header -->
-                <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,48,0,24" TextElement.TextAlignment="Center">
+                <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,48,0,24" TextBlock.TextAlignment="Center">
                     <TextBlock Text="MirrorCast"
                                FontFamily="Segoe UI Variable Display, Segoe UI"
                                FontSize="28"

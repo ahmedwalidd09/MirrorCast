@@ -9,7 +9,7 @@ namespace MirrorCast.Receiver.UI.Controls;
 /// Interaction logic for GlassToolbar.xaml.
 /// Translucent floating HUD displaying device metadata, real-time FPS, screenshot button, fullscreen toggle, and disconnect button.
 /// </summary>
-public partial class GlassToolbar : UserControl
+public partial class GlassToolbar : System.Windows.Controls.UserControl
 {
     private static readonly SolidColorBrush GreenBrush = new((Color)ColorConverter.ConvertFromString("#30D158"));
     private static readonly SolidColorBrush YellowBrush = new((Color)ColorConverter.ConvertFromString("#FF9F0A"));

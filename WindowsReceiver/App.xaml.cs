@@ -8,7 +8,7 @@ namespace MirrorCast.Receiver;
 /// Main application entry point for the MirrorCast Windows Receiver.
 /// Configures logging and global exception handling.
 /// </summary>
-public partial class App : Application
+public partial class App : System.Windows.Application
 {
     /// <summary>
     /// Initializes logging and application event subscriptions.

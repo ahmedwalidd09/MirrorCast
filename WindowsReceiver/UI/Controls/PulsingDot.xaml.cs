@@ -1,6 +1,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Brush = System.Windows.Media.Brush;
+using Color = System.Windows.Media.Color;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace MirrorCast.Receiver.UI.Controls;
 
