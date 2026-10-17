@@ -1,0 +1,34 @@
+name: Build iOS Sender
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'iOSSender/**'
+      - '.github/workflows/ios.yml'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build iOS App & Extension
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode Version
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app
+
+      - name: Build iOS Project (Simulator Archive / Verification)
+        working-directory: iOSSender
+        run: |
+          xcodebuild clean build \
+            -project MirrorCast.xcodeproj \
+            -scheme MirrorCast \
+            -destination "generic/platform=iOS Simulator" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
