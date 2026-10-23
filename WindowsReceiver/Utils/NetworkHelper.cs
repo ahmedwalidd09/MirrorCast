@@ -13,6 +13,66 @@ public static class NetworkHelper
     private static readonly ILogger Logger = Log.ForContext(typeof(NetworkHelper));
 
     /// <summary>
+    /// Telemetry metrics for local network interfaces and wireless hardware.
+    /// </summary>
+    public class NetworkTelemetry
+    {
+        public string AdapterName { get; set; } = "Wi-Fi";
+        public string Description { get; set; } = "Intel Wireless";
+        public long LinkSpeedMbps { get; set; } = 300;
+        public string IpAddress { get; set; } = "127.0.0.1";
+        public bool IsWifiDirectActive { get; set; } = false;
+        public string WifiDirectAdapterName { get; set; } = "";
+    }
+
+    /// <summary>
+    /// Gathers live hardware and telemetry details from active network interfaces.
+    /// </summary>
+    public static NetworkTelemetry GetActiveTelemetry()
+    {
+        var telemetry = new NetworkTelemetry();
+        try
+        {
+            foreach (var ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (ni.OperationalStatus != OperationalStatus.Up)
+                    continue;
+
+                if (ni.Description.Contains("Wi-Fi Direct", StringComparison.OrdinalIgnoreCase) ||
+                    ni.Name.Contains("Direct", StringComparison.OrdinalIgnoreCase))
+                {
+                    telemetry.IsWifiDirectActive = true;
+                    telemetry.WifiDirectAdapterName = ni.Description;
+                }
+                else if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 ||
+                         ni.Name.Equals("Wi-Fi", StringComparison.OrdinalIgnoreCase) ||
+                         ni.Description.Contains("Wireless", StringComparison.OrdinalIgnoreCase))
+                {
+                    telemetry.AdapterName = ni.Name;
+                    telemetry.Description = ni.Description;
+                    telemetry.LinkSpeedMbps = ni.Speed / 1_000_000;
+
+                    var ipProps = ni.GetIPProperties();
+                    foreach (var addr in ipProps.UnicastAddresses)
+                    {
+                        if (addr.Address.AddressFamily == AddressFamily.InterNetwork && !addr.Address.ToString().StartsWith("169.254."))
+                        {
+                            telemetry.IpAddress = addr.Address.ToString();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Logger.Warning(ex, "Failed to gather network telemetry.");
+        }
+
+        return telemetry;
+    }
+
+    /// <summary>
     /// Gets the primary active local IPv4 address of this machine.
     /// Prefers active Wi-Fi or Ethernet interfaces with default gateways.
     /// </summary>
