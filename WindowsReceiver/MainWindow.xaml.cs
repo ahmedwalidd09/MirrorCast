@@ -293,7 +293,7 @@ public partial class MainWindow : Window
             var psi = new System.Diagnostics.ProcessStartInfo
             {
                 FileName = "cmd.exe",
-                Arguments = "/c start shell:AppsFolder\\Windows.MiracastView_cw5n1h2txyewy!App",
+                Arguments = "/c start shell:AppsFolder\\Microsoft.PPIProjection_cw5n1h2txyewy!Microsoft.PPIProjection",
                 UseShellExecute = true,
                 CreateNoWindow = true
             };
