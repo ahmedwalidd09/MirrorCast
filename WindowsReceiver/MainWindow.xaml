@@ -312,21 +312,21 @@
                         </StackPanel>
                     </Border>
 
-                    <!-- TAB 2: ANDROID (SAME WI-FI) -->
+                    <!-- TAB 2: ANDROID (SMART VIEW / MIRACAST - ZERO INSTALLATION) -->
                     <Border x:Name="AndroidContent"
                             Background="#0D0D0D"
                             BorderBrush="#161616"
                             BorderThickness="1"
                             CornerRadius="16"
                             Padding="28"
-                            Width="520"
+                            Width="540"
                             HorizontalAlignment="Center"
                             Visibility="Collapsed">
-                        <StackPanel HorizontalAlignment="Center">
+                        <StackPanel HorizontalAlignment="Center" Width="480">
                             <!-- Status with Pulsing Dot -->
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                                 <controls:PulsingDot DotBrush="#30D158" Margin="0,0,10,0" VerticalAlignment="Center" />
-                                <TextBlock Text="Android Ready to Connect"
+                                <TextBlock Text="Samsung &amp; Android Miracast Ready"
                                            FontFamily="Segoe UI Variable Display, Segoe UI"
                                            FontSize="15"
                                            FontWeight="SemiBold"
@@ -334,44 +334,60 @@
                                            VerticalAlignment="Center" />
                             </StackPanel>
 
-                            <!-- QR Code Container -->
-                            <Border Background="#000000"
-                                    BorderBrush="#1F1F1F"
-                                    BorderThickness="1"
-                                    CornerRadius="12"
-                                    Padding="16"
-                                    Width="200" Height="200"
-                                    HorizontalAlignment="Center"
-                                    Margin="0,0,0,16">
-                                <Image x:Name="WifiQrImage"
-                                       Stretch="Uniform"
-                                       RenderOptions.BitmapScalingMode="NearestNeighbor" />
+                            <!-- Step 1 Card -->
+                            <Border Background="#161616" BorderBrush="#2A2A2A" BorderThickness="1" CornerRadius="10" Padding="14,10" Margin="0,0,0,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Background="#2A2A2A" Width="24" Height="24" CornerRadius="12" VerticalAlignment="Center">
+                                        <TextBlock Text="1" FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Foreground="#E8E8ED" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+                                        <TextBlock Text="Swipe Down Quick Settings" FontFamily="Segoe UI" FontSize="13" FontWeight="SemiBold" Foreground="#E8E8ED" />
+                                        <TextBlock Text="On your Samsung / Android phone, swipe down to open Quick Settings." FontFamily="Segoe UI" FontSize="11" Foreground="#8E8E93" />
+                                    </StackPanel>
+                                </Grid>
                             </Border>
 
-                            <!-- Direct IP Display & Copy Pill -->
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,12">
-                                <Border Background="#161616"
-                                        BorderBrush="#2A2A2A"
-                                        BorderThickness="1"
-                                        CornerRadius="8"
-                                        Padding="14,6"
-                                        Margin="0,0,8,0">
-                                    <TextBlock x:Name="LocalIpAddressText"
-                                               Text="192.168.1.100:59100"
-                                               FontFamily="Cascadia Code, Consolas, Segoe UI"
-                                               FontSize="13"
-                                               Foreground="#E8E8ED"
-                                               VerticalAlignment="Center" />
-                                </Border>
-                                <Button Content="Copy"
-                                        Style="{StaticResource PillCopyButton}"
-                                        Click="CopyIpAddress_Click" />
-                            </StackPanel>
+                            <!-- Step 2 Card -->
+                            <Border Background="#161616" BorderBrush="#2A2A2A" BorderThickness="1" CornerRadius="10" Padding="14,10" Margin="0,0,0,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Background="#2A2A2A" Width="24" Height="24" CornerRadius="12" VerticalAlignment="Center">
+                                        <TextBlock Text="2" FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Foreground="#E8E8ED" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+                                        <TextBlock Text="Tap 'Smart View' or 'Screen Cast'" FontFamily="Segoe UI" FontSize="13" FontWeight="SemiBold" Foreground="#E8E8ED" />
+                                        <TextBlock Text="Tap your PC name when it appears in the list." FontFamily="Segoe UI" FontSize="11" Foreground="#8E8E93" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <!-- Step 3 / Launch Action Card -->
+                            <Border Background="#161616" BorderBrush="#2A2A2A" BorderThickness="1" CornerRadius="10" Padding="14,12" Margin="0,0,0,18">
+                                <StackPanel>
+                                    <TextBlock Text="Native Miracast Receiver" FontFamily="Segoe UI" FontSize="13" FontWeight="SemiBold" Foreground="#30D158" />
+                                    <TextBlock Text="Launch or install the official Windows Wireless Display receiver for Smart View." FontFamily="Segoe UI" FontSize="11" Foreground="#8E8E93" Margin="0,2,0,8" />
+                                    <Button Content="Launch Native Smart View Receiver"
+                                            Style="{StaticResource PillCopyButton}"
+                                            HorizontalAlignment="Left"
+                                            Click="LaunchSmartView_Click" />
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Hidden Bindings for Backwards Compatibility -->
+                            <TextBlock x:Name="LocalIpAddressText" Visibility="Collapsed" />
+                            <Image x:Name="WifiQrImage" Visibility="Collapsed" />
 
                             <!-- Helper Text -->
-                            <TextBlock Text="Scan with the MirrorCast Android app or connect manually"
+                            <TextBlock Text="Zero app installation required on your phone · Uses native Miracast"
                                        FontFamily="Segoe UI"
-                                       FontSize="12"
+                                       FontSize="11"
                                        Foreground="#8E8E93"
                                        HorizontalAlignment="Center" />
                         </StackPanel>

@@ -285,6 +285,43 @@ public partial class MainWindow : Window
         }
     }
 
+    private void LaunchSmartView_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            // 1. Try launching the Windows Wireless Display app
+            var psi = new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = "/c start shell:AppsFolder\\Windows.MiracastView_cw5n1h2txyewy!App",
+                UseShellExecute = true,
+                CreateNoWindow = true
+            };
+            var p = System.Diagnostics.Process.Start(psi);
+            ShowToast("Launching Wireless Display...");
+
+            // Check if installed or launch helper script
+            string scriptPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\Enable-WirelessDisplay.bat");
+            if (System.IO.File.Exists(scriptPath))
+            {
+                // Run script if needed
+            }
+        }
+        catch (Exception ex)
+        {
+            Logger.Warning(ex, "Failed to launch Smart View / Wireless Display");
+            try
+            {
+                string scriptPath = @"C:\Users\moody\.gemini\antigravity\scratch\ScreenMirror\Enable-WirelessDisplay.bat";
+                if (System.IO.File.Exists(scriptPath))
+                {
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(scriptPath) { UseShellExecute = true });
+                }
+            }
+            catch { }
+        }
+    }
+
     private void CopyIpAddress_Click(object sender, RoutedEventArgs e)
     {
         try

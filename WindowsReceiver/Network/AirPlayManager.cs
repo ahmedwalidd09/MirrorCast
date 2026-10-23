@@ -69,9 +69,8 @@ public class AirPlayManager : IDisposable
             {
                 FileName = enginePath,
                 WorkingDirectory = workingDir,
-                UseShellExecute = false,
-                CreateNoWindow = true,
-                WindowStyle = ProcessWindowStyle.Hidden
+                UseShellExecute = true,
+                WindowStyle = ProcessWindowStyle.Normal
             };
 
             _engineProcess = Process.Start(startInfo);
@@ -159,6 +158,7 @@ public class AirPlayManager : IDisposable
         string baseDir = AppDomain.CurrentDomain.BaseDirectory;
         string[] candidates =
         [
+            @"C:\Program Files\uxplay-windows\uxplay-windows.exe",
             Path.Combine(baseDir, "AirPlayEngine", "uxplay-windows.exe"),
             Path.Combine(baseDir, "..", "..", "..", "..", "AirPlayEngine", "uxplay-windows.exe"),
             Path.Combine(baseDir, "..", "AirPlayEngine", "uxplay-windows.exe"),
