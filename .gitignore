@@ -46,5 +46,7 @@ build/
 *.log
 *.tmp
 *.bak
+*.zip
+AirPlayEngine/
 .directory
 Thumbs.db

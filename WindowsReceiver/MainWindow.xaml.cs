@@ -29,6 +29,7 @@ public partial class MainWindow : Window
     private readonly WiFiDirectService _wiFiDirectService;
     private readonly TcpStreamServer _tcpStreamServer;
     private readonly ControlSocketServer _controlSocketServer;
+    private readonly AirPlayManager _airPlayManager;
     private readonly H264Decoder _h264Decoder;
     private readonly FrameRenderer _frameRenderer;
     private readonly TrayIconManager _trayManager;
@@ -52,6 +53,7 @@ public partial class MainWindow : Window
         _wiFiDirectService = new WiFiDirectService();
         _tcpStreamServer = new TcpStreamServer(PrimaryStreamPort);
         _controlSocketServer = new ControlSocketServer(ControlPort);
+        _airPlayManager = new AirPlayManager();
 
         // 2. Initialize Video Pipeline
         _h264Decoder = new H264Decoder(1920, 1080);
@@ -124,9 +126,10 @@ public partial class MainWindow : Window
             _tcpStreamServer.Start();
             _controlSocketServer.Start();
 
-            // Start Discovery Services
+            // Start Discovery & AirPlay Services
             _mdnsAdvertiser.Start();
             _wiFiDirectService.Start();
+            _airPlayManager.Start();
 
             // Populate Startup Mode Details & QR Codes
             PopulateStartupDetails();
@@ -247,17 +250,38 @@ public partial class MainWindow : Window
 
     private void TabMode_Checked(object sender, RoutedEventArgs e)
     {
-        if (SameWifiContent == null || WifiDirectContent == null) return;
+        if (IosContent == null || AndroidContent == null || WifiDirectContent == null) return;
 
-        if (TabSameWifi.IsChecked == true)
+        if (TabIos.IsChecked == true)
         {
-            SameWifiContent.Visibility = Visibility.Visible;
+            IosContent.Visibility = Visibility.Visible;
+            AndroidContent.Visibility = Visibility.Collapsed;
             WifiDirectContent.Visibility = Visibility.Collapsed;
         }
-        else
+        else if (TabAndroid.IsChecked == true)
         {
-            SameWifiContent.Visibility = Visibility.Collapsed;
+            IosContent.Visibility = Visibility.Collapsed;
+            AndroidContent.Visibility = Visibility.Visible;
+            WifiDirectContent.Visibility = Visibility.Collapsed;
+        }
+        else if (TabWifiDirect.IsChecked == true)
+        {
+            IosContent.Visibility = Visibility.Collapsed;
+            AndroidContent.Visibility = Visibility.Collapsed;
             WifiDirectContent.Visibility = Visibility.Visible;
+        }
+    }
+
+    private void RestartAirPlay_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            _airPlayManager.Restart();
+            ShowToast("AirPlay receiver restarted");
+        }
+        catch (Exception ex)
+        {
+            Logger.Warning(ex, "Failed to restart AirPlay receiver");
         }
     }
 
@@ -460,6 +484,7 @@ public partial class MainWindow : Window
 
         _hudInactivityTimer.Stop();
         _trayManager.Dispose();
+        _airPlayManager.Dispose();
 
         _mdnsAdvertiser.Dispose();
         _wiFiDirectService.Dispose();

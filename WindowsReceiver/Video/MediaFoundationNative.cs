@@ -38,105 +38,84 @@ internal static class MediaFoundationNative
 
     [ComImport]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-    [Guid("44AE3870-1848-4bdf-91AD-80492E31E43D")]
-    public interface IMFSample
-    {
-        void GetItem();
-        void GetItemType();
-        void CompareItem();
-        void Compare();
-        void GetValue();
-        void CopyAllItems();
-        void SetItem();
-        void DeleteItem();
-        void DeleteAllItems();
-        void SetUINT32();
-        void SetUINT64();
-        void SetDouble();
-        void SetGUID();
-        void SetString();
-        void SetBlob();
-        void SetUnknown();
-        void LockStore();
-        void UnlockStore();
-        void GetCount();
-        void GetItemByIndex();
-        void CopyAllItemsTo();
-
-        [PreserveSig]
-        int GetSampleFlags(out uint pdwSampleFlags);
-        [PreserveSig]
-        int SetSampleFlags(uint dwSampleFlags);
-        [PreserveSig]
-        int GetSampleTime(out long phnsSampleTime);
-        [PreserveSig]
-        int SetSampleTime(long hnsSampleTime);
-        [PreserveSig]
-        int GetSampleDuration(out long phnsSampleDuration);
-        [PreserveSig]
-        int SetSampleDuration(long hnsSampleDuration);
-        [PreserveSig]
-        int GetBufferCount(out uint pdwBufferCount);
-        [PreserveSig]
-        int GetBufferByIndex(uint dwIndex, out IMFMediaBuffer ppBuffer);
-        [PreserveSig]
-        int ConvertToContiguousBuffer(out IMFMediaBuffer ppBuffer);
-        [PreserveSig]
-        int AddBuffer(IMFMediaBuffer pBuffer);
-        [PreserveSig]
-        int RemoveBufferByIndex(uint dwIndex);
-        [PreserveSig]
-        int RemoveAllBuffers();
-        [PreserveSig]
-        int GetTotalLength(out uint pcbTotalLength);
-        [PreserveSig]
-        int CopyToBuffer(IMFMediaBuffer pBuffer);
-    }
-
-    [ComImport]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-    [Guid("045FA593-87D5-4b50-BC71-6C1E4005B605")]
-    public interface IMFMediaBuffer
-    {
-        [PreserveSig]
-        int Lock(out nint ppbBuffer, out uint pcbMaxLength, out uint pcbCurrentLength);
-        [PreserveSig]
-        int Unlock();
-        [PreserveSig]
-        int GetCurrentLength(out uint pcbCurrentLength);
-        [PreserveSig]
-        int SetCurrentLength(uint cbCurrentLength);
-        [PreserveSig]
-        int GetMaxLength(out uint pcbMaxLength);
-    }
-
-    [ComImport]
-    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-    [Guid("44AE3870-1848-4bdf-91AD-80492E31E43D")]
+    [Guid("2CD2D921-C447-44A7-A13C-4ADABFC247E3")]
     public interface IMFAttributes
     {
-        [PreserveSig]
-        int GetItem([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, [In, Out] ref nint pValue);
-        [PreserveSig]
-        int SetUINT32([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, uint unValue);
-        [PreserveSig]
-        int SetUINT64([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, ulong unValue);
-        [PreserveSig]
-        int SetGUID([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, [In, MarshalAs(UnmanagedType.LPStruct)] Guid guidValue);
-        [PreserveSig]
-        int GetGUID([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out Guid pguidValue);
-        [PreserveSig]
-        int GetUINT32([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out uint punValue);
-        [PreserveSig]
-        int GetUINT64([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out ulong punValue);
+        [PreserveSig] int GetItem([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, [In, Out] ref nint pValue);
+        [PreserveSig] int GetItemType([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out int pType);
+        [PreserveSig] int CompareItem([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, nint Value, out bool pbResult);
+        [PreserveSig] int Compare(IMFAttributes pTheAttrs, int MatchType, out bool pbResult);
+        [PreserveSig] int GetUINT32([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out uint punValue);
+        [PreserveSig] int GetUINT64([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out ulong punValue);
+        [PreserveSig] int GetDouble([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out double pfValue);
+        [PreserveSig] int GetGUID([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out Guid pguidValue);
+        [PreserveSig] int GetStringLength([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out uint pcchLength);
+        [PreserveSig] int GetString([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, [Out, MarshalAs(UnmanagedType.LPWStr)] System.Text.StringBuilder pwszValue, uint cchBufSize, out uint pcchLength);
+        [PreserveSig] int GetAllocatedString([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out nint ppwszValue, out uint pcchLength);
+        [PreserveSig] int GetBlobSize([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out uint pcbBlobSize);
+        [PreserveSig] int GetBlob([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, [Out] byte[] pBuf, uint cbBufSize, out uint pcbBlobSize);
+        [PreserveSig] int GetAllocatedBlob([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, out nint ppBuf, out uint pcbSize);
+        [PreserveSig] int GetUnknown([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, [In, MarshalAs(UnmanagedType.LPStruct)] Guid riid, out nint ppv);
+        [PreserveSig] int SetItem([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, nint Value);
+        [PreserveSig] int DeleteItem([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey);
+        [PreserveSig] int DeleteAllItems();
+        [PreserveSig] int SetUINT32([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, uint unValue);
+        [PreserveSig] int SetUINT64([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, ulong unValue);
+        [PreserveSig] int SetDouble([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, double fValue);
+        [PreserveSig] int SetGUID([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, [In, MarshalAs(UnmanagedType.LPStruct)] Guid guidValue);
+        [PreserveSig] int SetString([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, [In, MarshalAs(UnmanagedType.LPWStr)] string wszValue);
+        [PreserveSig] int SetBlob([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, [In] byte[] pBuf, uint cbBufSize);
+        [PreserveSig] int SetUnknown([In, MarshalAs(UnmanagedType.LPStruct)] Guid guidKey, [In, MarshalAs(UnmanagedType.IUnknown)] object pUnknown);
+        [PreserveSig] int LockStore();
+        [PreserveSig] int UnlockStore();
+        [PreserveSig] int GetCount(out uint pcItems);
+        [PreserveSig] int GetItemByIndex(uint unIndex, out Guid pGuidKey, [In, Out] ref nint pValue);
+        [PreserveSig] int CopyAllItems(IMFAttributes pDest);
     }
 
     [ComImport]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-    [Guid("44AE3870-1848-4bdf-91AD-80492E31E43D")]
+    [Guid("44AE3870-1848-4BDF-91AD-80492E31E43D")]
     public interface IMFMediaType : IMFAttributes
     {
-        // Inherits IMFAttributes
+        [PreserveSig] int GetMajorType(out Guid pguidMajorType);
+        [PreserveSig] int IsCompressedFormat(out bool pfCompressed);
+        [PreserveSig] int IsEqual(IMFMediaType pIMediaType, out uint pdwFlags);
+        [PreserveSig] int GetRepresentation(Guid guidRepresentation, out nint ppvRepresentation);
+        [PreserveSig] int FreeRepresentation(Guid guidRepresentation, nint pvRepresentation);
+    }
+
+    [ComImport]
+    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [Guid("C40A00F2-B93A-4D80-AE8C-5A1C634F58E4")]
+    public interface IMFSample : IMFAttributes
+    {
+        [PreserveSig] int GetSampleFlags(out uint pdwSampleFlags);
+        [PreserveSig] int SetSampleFlags(uint dwSampleFlags);
+        [PreserveSig] int GetSampleTime(out long phnsSampleTime);
+        [PreserveSig] int SetSampleTime(long hnsSampleTime);
+        [PreserveSig] int GetSampleDuration(out long phnsSampleDuration);
+        [PreserveSig] int SetSampleDuration(long hnsSampleDuration);
+        [PreserveSig] int GetBufferCount(out uint pdwBufferCount);
+        [PreserveSig] int GetBufferByIndex(uint dwIndex, out IMFMediaBuffer ppBuffer);
+        [PreserveSig] int ConvertToContiguousBuffer(out IMFMediaBuffer ppBuffer);
+        [PreserveSig] int AddBuffer(IMFMediaBuffer pBuffer);
+        [PreserveSig] int RemoveBufferByIndex(uint dwIndex);
+        [PreserveSig] int RemoveAllBuffers();
+        [PreserveSig] int GetTotalLength(out uint pcbTotalLength);
+        [PreserveSig] int CopyToBuffer(IMFMediaBuffer pBuffer);
+    }
+
+    [ComImport]
+    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [Guid("045FA593-8799-42B8-BC8D-8968C6453507")]
+    public interface IMFMediaBuffer
+    {
+        [PreserveSig] int Lock(out nint ppbBuffer, out uint pcbMaxLength, out uint pcbCurrentLength);
+        [PreserveSig] int Unlock();
+        [PreserveSig] int GetCurrentLength(out uint pcbCurrentLength);
+        [PreserveSig] int SetCurrentLength(uint cbCurrentLength);
+        [PreserveSig] int GetMaxLength(out uint pcbMaxLength);
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -171,51 +150,28 @@ internal static class MediaFoundationNative
     [Guid("BF94C121-5B05-4E6F-8000-BA598961414D")]
     public interface IMFTransform
     {
-        [PreserveSig]
-        int GetStreamLimits(out uint pdwInputMinimum, out uint pdwInputMaximum, out uint pdwOutputMinimum, out uint pdwOutputMaximum);
-        [PreserveSig]
-        int GetStreamCount(out uint pcInputStreams, out uint pcOutputStreams);
-        [PreserveSig]
-        int GetStreamIDs(uint dwInputIDArraySize, [Out] uint[] pdwInputIDs, uint dwOutputIDArraySize, [Out] uint[] pdwOutputIDs);
-        [PreserveSig]
-        int GetInputStreamInfo(uint dwInputStreamID, out MFT_INPUT_STREAM_INFO pStreamInfo);
-        [PreserveSig]
-        int GetOutputStreamInfo(uint dwOutputStreamID, out MFT_OUTPUT_STREAM_INFO pStreamInfo);
-        [PreserveSig]
-        int GetAttributes(out IMFAttributes pAttributes);
-        [PreserveSig]
-        int GetInputStreamAttributes(uint dwInputStreamID, out IMFAttributes pAttributes);
-        [PreserveSig]
-        int GetOutputStreamAttributes(uint dwOutputStreamID, out IMFAttributes pAttributes);
-        [PreserveSig]
-        int DeleteInputStream(uint dwStreamID);
-        [PreserveSig]
-        int AddInputStreams(uint cStreams, [In] uint[] adwStreamIDs);
-        [PreserveSig]
-        int GetInputAvailableType(uint dwInputStreamID, uint dwTypeIndex, out IMFMediaType ppType);
-        [PreserveSig]
-        int GetOutputAvailableType(uint dwOutputStreamID, uint dwTypeIndex, out IMFMediaType ppType);
-        [PreserveSig]
-        int SetInputType(uint dwInputStreamID, [In] IMFMediaType pType, uint dwFlags);
-        [PreserveSig]
-        int SetOutputType(uint dwOutputStreamID, [In] IMFMediaType pType, uint dwFlags);
-        [PreserveSig]
-        int GetInputCurrentType(uint dwInputStreamID, out IMFMediaType ppType);
-        [PreserveSig]
-        int GetOutputCurrentType(uint dwOutputStreamID, out IMFMediaType ppType);
-        [PreserveSig]
-        int GetInputStatus(uint dwInputStreamID, out uint pdwFlags);
-        [PreserveSig]
-        int GetOutputStatus(out uint pdwFlags);
-        [PreserveSig]
-        int SetOutputBounds(long hnsLowerBound, long hnsUpperBound);
-        [PreserveSig]
-        int ProcessEvent(uint dwInputStreamID, nint pEvent);
-        [PreserveSig]
-        int ProcessMessage(uint eMessage, nuint ulParam);
-        [PreserveSig]
-        int ProcessInput(uint dwInputStreamID, IMFSample pSample, uint dwFlags);
-        [PreserveSig]
-        int ProcessOutput(uint dwFlags, uint cOutputBufferCount, [In, Out] MFT_OUTPUT_DATA_BUFFER[] pOutputSamples, out uint pdwStatus);
+        [PreserveSig] int GetStreamLimits(out uint pdwInputMinimum, out uint pdwInputMaximum, out uint pdwOutputMinimum, out uint pdwOutputMaximum);
+        [PreserveSig] int GetStreamCount(out uint pcInputStreams, out uint pcOutputStreams);
+        [PreserveSig] int GetStreamIDs(uint dwInputIDArraySize, [Out] uint[] pdwInputIDs, uint dwOutputIDArraySize, [Out] uint[] pdwOutputIDs);
+        [PreserveSig] int GetInputStreamInfo(uint dwInputStreamID, out MFT_INPUT_STREAM_INFO pStreamInfo);
+        [PreserveSig] int GetOutputStreamInfo(uint dwOutputStreamID, out MFT_OUTPUT_STREAM_INFO pStreamInfo);
+        [PreserveSig] int GetAttributes(out IMFAttributes pAttributes);
+        [PreserveSig] int GetInputStreamAttributes(uint dwInputStreamID, out IMFAttributes pAttributes);
+        [PreserveSig] int GetOutputStreamAttributes(uint dwOutputStreamID, out IMFAttributes pAttributes);
+        [PreserveSig] int DeleteInputStream(uint dwStreamID);
+        [PreserveSig] int AddInputStreams(uint cStreams, [In] uint[] adwStreamIDs);
+        [PreserveSig] int GetInputAvailableType(uint dwInputStreamID, uint dwTypeIndex, out IMFMediaType ppType);
+        [PreserveSig] int GetOutputAvailableType(uint dwOutputStreamID, uint dwTypeIndex, out IMFMediaType ppType);
+        [PreserveSig] int SetInputType(uint dwInputStreamID, [In] IMFMediaType pType, uint dwFlags);
+        [PreserveSig] int SetOutputType(uint dwOutputStreamID, [In] IMFMediaType pType, uint dwFlags);
+        [PreserveSig] int GetInputCurrentType(uint dwInputStreamID, out IMFMediaType ppType);
+        [PreserveSig] int GetOutputCurrentType(uint dwOutputStreamID, out IMFMediaType ppType);
+        [PreserveSig] int GetInputStatus(uint dwInputStreamID, out uint pdwFlags);
+        [PreserveSig] int GetOutputStatus(out uint pdwFlags);
+        [PreserveSig] int SetOutputBounds(long hnsLowerBound, long hnsUpperBound);
+        [PreserveSig] int ProcessEvent(uint dwInputStreamID, nint pEvent);
+        [PreserveSig] int ProcessMessage(uint eMessage, nuint ulParam);
+        [PreserveSig] int ProcessInput(uint dwInputStreamID, IMFSample pSample, uint dwFlags);
+        [PreserveSig] int ProcessOutput(uint dwFlags, uint cOutputBufferCount, [In, Out] MFT_OUTPUT_DATA_BUFFER[] pOutputSamples, out uint pdwStatus);
     }
 }

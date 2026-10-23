@@ -193,17 +193,21 @@
                 </StackPanel>
 
                 <!-- Connection Mode Tabs with Animated Indicator -->
-                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,32">
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,24">
                     <Border Background="#0D0D0D"
                             BorderBrush="#1F1F1F"
                             BorderThickness="1"
                             CornerRadius="20"
                             Padding="4">
                         <StackPanel Orientation="Horizontal">
-                            <RadioButton x:Name="TabSameWifi"
-                                         Content="Same Wi-Fi"
+                            <RadioButton x:Name="TabIos"
+                                         Content="iPhone / iPad (AirPlay)"
                                          Style="{StaticResource TabHeaderButton}"
                                          IsChecked="True"
+                                         Checked="TabMode_Checked" />
+                            <RadioButton x:Name="TabAndroid"
+                                         Content="Android"
+                                         Style="{StaticResource TabHeaderButton}"
                                          Checked="TabMode_Checked" />
                             <RadioButton x:Name="TabWifiDirect"
                                          Content="Wi-Fi Direct (No Router)"
@@ -215,20 +219,114 @@
 
                 <!-- TAB CONTENT CONTAINER -->
                 <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <!-- TAB 1: SAME WI-FI -->
-                    <Border x:Name="SameWifiContent"
+                    <!-- TAB 1: IPHONE / IPAD (AIRPLAY - ZERO INSTALLATION) -->
+                    <Border x:Name="IosContent"
                             Background="#0D0D0D"
                             BorderBrush="#161616"
                             BorderThickness="1"
                             CornerRadius="16"
-                            Padding="32"
-                            Width="520"
+                            Padding="28"
+                            Width="540"
                             HorizontalAlignment="Center">
+                        <StackPanel HorizontalAlignment="Center" Width="480">
+                            <!-- Status with Pulsing Dot -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                                <controls:PulsingDot DotBrush="#30D158" Margin="0,0,10,0" VerticalAlignment="Center" />
+                                <TextBlock Text="AirPlay Receiver Ready: "
+                                           FontFamily="Segoe UI Variable Display, Segoe UI"
+                                           FontSize="15"
+                                           FontWeight="SemiBold"
+                                           Foreground="#C8C8CC"
+                                           VerticalAlignment="Center" />
+                                <TextBlock Text="MirrorCast"
+                                           FontFamily="Segoe UI Variable Display, Segoe UI"
+                                           FontSize="15"
+                                           FontWeight="Bold"
+                                           Foreground="#30D158"
+                                           VerticalAlignment="Center" />
+                            </StackPanel>
+
+                            <!-- Step 1 Card -->
+                            <Border Background="#161616" BorderBrush="#2A2A2A" BorderThickness="1" CornerRadius="10" Padding="14,10" Margin="0,0,0,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Background="#2A2A2A" Width="24" Height="24" CornerRadius="12" VerticalAlignment="Center">
+                                        <TextBlock Text="1" FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Foreground="#E8E8ED" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+                                        <TextBlock Text="Connect to Same Wi-Fi" FontFamily="Segoe UI" FontSize="13" FontWeight="SemiBold" Foreground="#E8E8ED" />
+                                        <TextBlock Text="Make sure your iPhone and this PC are on the same Wi-Fi router." FontFamily="Segoe UI" FontSize="11" Foreground="#8E8E93" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <!-- Step 2 Card -->
+                            <Border Background="#161616" BorderBrush="#2A2A2A" BorderThickness="1" CornerRadius="10" Padding="14,10" Margin="0,0,0,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Background="#2A2A2A" Width="24" Height="24" CornerRadius="12" VerticalAlignment="Center">
+                                        <TextBlock Text="2" FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Foreground="#E8E8ED" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+                                        <TextBlock Text="Open Control Center" FontFamily="Segoe UI" FontSize="13" FontWeight="SemiBold" Foreground="#E8E8ED" />
+                                        <TextBlock Text="Swipe down from the top-right corner of your iPhone screen." FontFamily="Segoe UI" FontSize="11" Foreground="#8E8E93" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <!-- Step 3 Card -->
+                            <Border Background="#161616" BorderBrush="#2A2A2A" BorderThickness="1" CornerRadius="10" Padding="14,10" Margin="0,0,0,18">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Background="#2A2A2A" Width="24" Height="24" CornerRadius="12" VerticalAlignment="Center">
+                                        <TextBlock Text="3" FontFamily="Segoe UI" FontSize="12" FontWeight="Bold" Foreground="#30D158" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+                                        <TextBlock Text="Tap Screen Mirroring [⧉] &gt; Select MirrorCast" FontFamily="Segoe UI" FontSize="13" FontWeight="SemiBold" Foreground="#30D158" />
+                                        <TextBlock Text="Your screen and audio will instantly mirror to Windows in 60 FPS!" FontFamily="Segoe UI" FontSize="11" Foreground="#8E8E93" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <!-- Helper Text & Refresh Button -->
+                            <Grid>
+                                <TextBlock Text="No app or Mac required · Native iOS AirPlay"
+                                           FontFamily="Segoe UI"
+                                           FontSize="11"
+                                           Foreground="#8E8E93"
+                                           VerticalAlignment="Center" />
+                                <Button Content="Restart AirPlay"
+                                        Style="{StaticResource PillCopyButton}"
+                                        HorizontalAlignment="Right"
+                                        Click="RestartAirPlay_Click" />
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- TAB 2: ANDROID (SAME WI-FI) -->
+                    <Border x:Name="AndroidContent"
+                            Background="#0D0D0D"
+                            BorderBrush="#161616"
+                            BorderThickness="1"
+                            CornerRadius="16"
+                            Padding="28"
+                            Width="520"
+                            HorizontalAlignment="Center"
+                            Visibility="Collapsed">
                         <StackPanel HorizontalAlignment="Center">
                             <!-- Status with Pulsing Dot -->
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,24">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                                 <controls:PulsingDot DotBrush="#30D158" Margin="0,0,10,0" VerticalAlignment="Center" />
-                                <TextBlock Text="Ready to connect"
+                                <TextBlock Text="Android Ready to Connect"
                                            FontFamily="Segoe UI Variable Display, Segoe UI"
                                            FontSize="15"
                                            FontWeight="SemiBold"
@@ -242,9 +340,9 @@
                                     BorderThickness="1"
                                     CornerRadius="12"
                                     Padding="16"
-                                    Width="220" Height="220"
+                                    Width="200" Height="200"
                                     HorizontalAlignment="Center"
-                                    Margin="0,0,0,20">
+                                    Margin="0,0,0,16">
                                 <Image x:Name="WifiQrImage"
                                        Stretch="Uniform"
                                        RenderOptions.BitmapScalingMode="NearestNeighbor" />
@@ -271,28 +369,27 @@
                             </StackPanel>
 
                             <!-- Helper Text -->
-                            <TextBlock Text="Scan with the MirrorCast app or connect to this IP manually"
+                            <TextBlock Text="Scan with the MirrorCast Android app or connect manually"
                                        FontFamily="Segoe UI"
                                        FontSize="12"
                                        Foreground="#8E8E93"
-                                       HorizontalAlignment="Center"
-                                       Margin="0,6,0,0" />
+                                       HorizontalAlignment="Center" />
                         </StackPanel>
                     </Border>
 
-                    <!-- TAB 2: WI-FI DIRECT (NO ROUTER) -->
+                    <!-- TAB 3: WI-FI DIRECT (NO ROUTER) -->
                     <Border x:Name="WifiDirectContent"
                             Background="#0D0D0D"
                             BorderBrush="#161616"
                             BorderThickness="1"
                             CornerRadius="16"
-                            Padding="32"
+                            Padding="28"
                             Width="520"
                             HorizontalAlignment="Center"
                             Visibility="Collapsed">
                         <StackPanel HorizontalAlignment="Center">
                             <!-- Status with Broadcasting Dot -->
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,24">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
                                 <controls:PulsingDot DotBrush="#30D158" Margin="0,0,10,0" VerticalAlignment="Center" />
                                 <TextBlock Text="Wi-Fi Direct Soft-AP Active"
                                            FontFamily="Segoe UI Variable Display, Segoe UI"
@@ -308,9 +405,9 @@
                                     BorderThickness="1"
                                     CornerRadius="12"
                                     Padding="16"
-                                    Width="220" Height="220"
+                                    Width="200" Height="200"
                                     HorizontalAlignment="Center"
-                                    Margin="0,0,0,20">
+                                    Margin="0,0,0,16">
                                 <Image x:Name="DirectQrImage"
                                        Stretch="Uniform"
                                        RenderOptions.BitmapScalingMode="NearestNeighbor" />
