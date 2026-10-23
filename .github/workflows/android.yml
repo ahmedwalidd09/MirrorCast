@@ -1,13 +1,16 @@
-name: Build Android APK
+name: Build and Release Android APK
 
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
-    name: Build Android APK
+    name: Build & Publish APK
     runs-on: ubuntu-latest
 
     steps:
@@ -27,8 +30,21 @@ jobs:
         working-directory: AndroidSender
         run: gradle assembleDebug --stacktrace
 
+      - name: Rename APK
+        run: cp AndroidSender/app/build/outputs/apk/debug/app-debug.apk MirrorCast-v1.0.0.apk
+
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: MirrorCast-Android-APK
-          path: AndroidSender/app/build/outputs/apk/debug/app-debug.apk
+          path: MirrorCast-v1.0.0.apk
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          name: "MirrorCast v1.0.0 (Android APK)"
+          body: "Direct download of the MirrorCast Android Sender APK. Tap `MirrorCast-v1.0.0.apk` below on your Android phone to install."
+          files: MirrorCast-v1.0.0.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
